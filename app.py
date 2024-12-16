@@ -3,6 +3,7 @@ import json
 import subprocess
 import os
 import signal
+import pandas
 
 DATA_FILE = "data.json"
 BOT_PROCESS = None
