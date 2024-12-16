@@ -1,2 +1,4 @@
 streamlit
 discord
+discord.py
+pandas
