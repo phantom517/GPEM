@@ -1,7 +1,7 @@
 import discord
 from discord.ext import commands
 import json
-from credentials import DISCORD_TOKEN
+
 
 # Define intents and enable message content
 intents = discord.Intents.default()
@@ -139,4 +139,4 @@ async def on_command_error(ctx, error):
         await ctx.send("❌ **An unexpected error occurred. Please try again.**")
         print(f"Error: {error}")  # Log the error for debugging
 
-bot.run(DISCORD_TOKEN)
+bot.run(st.secrets["DISCORD_TOKEN"])
