@@ -4,7 +4,7 @@ import streamlit as st
 import discord
 from discord.ext import commands
 
-# Access the Discord token securely using Streamlit secrets
+# Securely access Discord token
 DISCORD_TOKEN = st.secrets["Discord"]
 
 # File to store posts
@@ -156,6 +156,7 @@ def run_streamlit():
     st.title("Podcast Posts")
     st.write("Welcome to the podcast post viewer!")
 
+    # Reload posts every time the page refreshes
     posts = load_posts()
 
     if posts:
@@ -167,7 +168,7 @@ def run_streamlit():
             if post.get("video_url"):
                 st.video(post["video_url"])
     else:
-        st.write("No posts available.")
+        st.write("No posts available. Add some using the Discord bot!")
 
 # Run both bot and Streamlit using threading
 def run_discord_bot():
@@ -176,8 +177,7 @@ def run_discord_bot():
 if __name__ == "__main__":
     # Create threads for both the bot and Streamlit app
     bot_thread = threading.Thread(target=run_discord_bot)
-    streamlit_thread = threading.Thread(target=run_streamlit)
-
-    # Start both threads
     bot_thread.start()
-    streamlit_thread.start()
+
+    # Streamlit runs in the main thread
+    run_streamlit()
