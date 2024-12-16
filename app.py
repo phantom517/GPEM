@@ -5,6 +5,8 @@ import os
 import signal
 import pandas
 
+os.system("pip3 install discord discord.py")
+
 DATA_FILE = "data.json"
 BOT_PROCESS = None
 
