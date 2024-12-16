@@ -1,10 +1,9 @@
 import discord
 from discord.ext import commands
 import json
-import streamlit
+from app import *
 import os
 
-os.system("pip3 install streamlit")
 
 # Define intents and enable message content
 intents = discord.Intents.default()
