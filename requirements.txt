@@ -1,2 +1,2 @@
 streamlit
-discord
+pandas
